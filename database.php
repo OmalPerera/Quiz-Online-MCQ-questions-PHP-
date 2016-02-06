@@ -17,15 +17,15 @@
      echo $ID . " " . $Password; 
     */
     
-    if(isset($_POST['submit'])) {
-        SignIn();
-        }
+    #if(isset($_POST['submit'])) {
+     #   SignIn();
+      #  }
     
     
-    function SignIn() {
+    #function SignIn() {
         session_start(); //starting the session for user profile page
         
-        if(!empty($_POST['username'])){
+        if((!empty($_POST['username'])) || (!empty($_POST['password']))){
             
             $query_statement = "SELECT name, password
                                 FROM user
@@ -36,16 +36,21 @@
             $row = mysqli_fetch_array($query)
                 or die(mysql_error());
                 
+                $a = $row['username'];
+                echo $a;
+                
             if(!empty($row['username']) AND !empty($row['password'])) {
-                $_SESSION['username'] = $row['password'];
-                echo "success";
-                header("Location :/page_mcq.php");
-                exit;
-            } else {
+                #$_SESSION['username'] = $row['password'];
+                header("Location:page_mcq.php");
+                exit();
+            }else {
                 echo "SORRY... YOU ENTERD WRONG ID AND PASSWORD... PLEASE RETRY...";
+                #header("Location:page_mcq.php");
+                exit();
                 }
+        
         }
-        }
+     #   }
         
         
             

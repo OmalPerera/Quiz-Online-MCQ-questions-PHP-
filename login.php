@@ -28,7 +28,8 @@
         <div style="width: 100%; height: 73%; background-color: rgba(255,255,255,0.9); padding-top: 15px;">
             <div class="container">
                 <div class="row">
-                    <form class="col s12" action="database.php" method="post">
+                    
+                    <form class="col s12" action="userLoginLogic.php" method="post">
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">email</i>
