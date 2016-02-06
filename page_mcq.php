@@ -2,6 +2,8 @@
 
 <?php
 
+    $questionNumbers=array("1","2","3");
+    
     #Creating a database connection
     $con = mysqli_connect("localhost","root","root","mcq_quiz");
     if(!$con){
@@ -12,32 +14,77 @@
     mysqli_select_db($con , "questions_answers");
 
     
+    dbQuery("1");
+    
+    $question;
+    $option_1;
+    $option_2;
+    $option_3;
+    $option_4;
+    
     #Performing Database Querry
-    $query_statement = "SELECT question, ans_1, ans_2, ans_3, ans_4
+    function dbQuery($questionNumber){
+       
+        $query_statement = "SELECT question, ans_1, ans_2, ans_3, ans_4
                         FROM questions_answers
-                        WHERE que_no=1";
-    $result = mysqli_query($con, $query_statement);
-    if(!$result){
-        die("Databse querry failed : " . mysqli_error());
+                        WHERE que_no=". $questionNumber ." ";
+        #echo $query_statement;                
+        global $con;
+        $result = mysqli_query($con, $query_statement);
+    
+        if(!$result){
+            die("Databse querry failed : " . mysqli_error());
+        }
+        
+        
+        
+        #Showing result in html
+        while ($row = mysqli_fetch_array($result)){
+            
+            global $question;
+            global $option_1;
+            global $option_2;
+            global $option_3;
+            global $option_4;
+            
+            $question = $row[0];
+            $option_1 = $row[1];
+            $option_2 = $row[2];
+            $option_3 = $row[3];
+            $option_4 = $row[4];
+        }
+        
     }
     
-    global $question;
-    global $option_1;
-    global $option_2;
-    global $option_3;
-    global $option_4;
     
-    #Showing result in html
-    while ($row = mysqli_fetch_array($result)){
-         $question = $row[0];
-         $option_1 = $row[1];
-         $option_2 = $row[2];
-         $option_3 = $row[3];
-         $option_4 = $row[4];
+
+    
+    if(isset($_GET['runFunction']) && function_exists($_GET['runFunction'])){
+        call_user_func($_GET['runFunction']);
+    }else{
+        echo "Function not found or wrong input";
+    }
+    
+    
+    function randomMcq_1(){
+        dbQuery("1");   
+    }
+    
+    function randomMcq_2(){
+        dbQuery("2");   
     }
 
-
-
+    function randomMcq_3(){
+        dbQuery("3");   
+    }
+    
+    function randomMcq_4(){
+        dbQuery("4");   
+    }
+    
+    function randomMcq_5(){
+        dbQuery("5");   
+    }
 
 
 ?>
@@ -113,19 +160,19 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="#">1<span class="sr-only">(current)</span></a>
+                        <a href="page_mcq.php?runFunction=randomMcq_1">1<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="#">2<span class="sr-only">(current)</span></a>
+                        <a href="page_mcq.php?runFunction=randomMcq_2">2<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="#">3<span class="sr-only">(current)</span></a>
+                        <a href="page_mcq.php?runFunction=randomMcq_3">3<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="#">4<span class="sr-only">(current)</span></a>
+                        <a href="page_mcq.php?runFunction=randomMcq_4">4<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="#">5<span class="sr-only">(current)</span></a>
+                        <a href="page_mcq.php?runFunction=randomMcq_5">5<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <a href="#" aria-label="Next">
