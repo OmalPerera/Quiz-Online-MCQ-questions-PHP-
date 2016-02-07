@@ -325,7 +325,9 @@
                 
             </div>
             <div class="col-sm-3 col-xs-3 pagination" style="text-align: center">
+                <a href="score.php">
                 <button type="button" class="btn btn-success" onclick='submit_answers()'>Submit</button>
+                </a>
             </div>
         </div>
     
