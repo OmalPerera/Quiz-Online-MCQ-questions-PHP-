@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
 <?php
-
- include_once('randomQueNum.php');
-    
-    
+    #session_start();
+   
+    include_once('randomQueNum.php');
+     
+     
     #Creating a database connection
     $con = mysqli_connect("localhost","root","root","mcq_quiz");
     if(!$con){
@@ -15,21 +16,31 @@
     mysqli_select_db($con , "questions_answers");
 
     
-    dbQuery($questionNumbers[0]);
     
-    $question;
-    $option_1;
-    $option_2;
-    $option_3;
-    $option_4;
+    
+    $array_Que_Ans = array();
+    /*
+    echo $questionNumbers[0]. "<br>";
+    echo $questionNumbers[1]. "<br>";
+    echo $questionNumbers[2]. "<br>";
+    echo $questionNumbers[3]. "<br>";
+    */
+    for($i=0; $i<5; $i++){
+            global $questionNumbers;
+            #echo $questionNumbers[$i];
+            dbQuery($questionNumbers[$i],$i);   
+        
+    }
+    
+    
     
     #Performing Database Querry
-    function dbQuery($questionNumber){
+    function dbQuery($questionNumber,$arr_index){
        
         $query_statement = "SELECT question, ans_1, ans_2, ans_3, ans_4
                         FROM questions_answers
                         WHERE que_no=". $questionNumber ." ";
-        #echo $query_statement;                
+        echo $questionNumber;              
         global $con;
         $result = mysqli_query($con, $query_statement);
     
@@ -41,56 +52,17 @@
         
         #Showing result in html
         while ($row = mysqli_fetch_array($result)){
+            #echo $questionNumber;
+            global $array_Que_Ans;
+            $array_Que_Ans[$arr_index][0] = $row[0];
+            $array_Que_Ans[$arr_index][1] = $row[1];
+            $array_Que_Ans[$arr_index][2] = $row[2];
+            $array_Que_Ans[$arr_index][3] = $row[3];
+            $array_Que_Ans[$arr_index][4] = $row[4];
             
-            global $question;
-            global $option_1;
-            global $option_2;
-            global $option_3;
-            global $option_4;
-            
-            $question = $row[0];
-            $option_1 = $row[1];
-            $option_2 = $row[2];
-            $option_3 = $row[3];
-            $option_4 = $row[4];
-        }
-        
+        }    
     }
     
-    
-
-    
-    if(isset($_GET['runFunction']) && function_exists($_GET['runFunction'])){
-        call_user_func($_GET['runFunction']);
-    }else{
-       # echo "Function not found or wrong input";
-    }
-    
-    
-    function randomMcq_1(){
-        global $questionNumbers;
-        dbQuery($questionNumbers[0]);   
-    }
-    
-    function randomMcq_2(){
-        global $questionNumbers;
-        dbQuery($questionNumbers[1]);   
-    }
-
-    function randomMcq_3(){
-        global $questionNumbers;
-        dbQuery($questionNumbers[2]);   
-    }
-    
-    function randomMcq_4(){
-        global $questionNumbers;
-        dbQuery($questionNumbers[3]);   
-    }
-    
-    function randomMcq_5(){
-        global $questionNumbers;
-        dbQuery($questionNumbers[4]);   
-    }
 
 
 ?>
@@ -109,6 +81,154 @@
     <div id="navbar" class="navbar-collapse collapes" style="background-color: #000; height: 75px">
         hello
     </div>
+
+    <div class="container">
+        <div class="jumbotron jumbo-rounded top-space">
+            <h2>Question 1</h2>
+
+            <p style="font-size:17px ">
+                <?php
+                    echo $array_Que_Ans[0][0];
+                ?>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron jumbo-rounded">
+            <h2>Answers</h2>
+            
+            <div class="radio top-space">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                        <?php echo $array_Que_Ans[0][1]; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        <?php echo $array_Que_Ans[0][2]; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                        <?php echo $array_Que_Ans[0][3]; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                        <?php echo $array_Que_Ans[0][4]; ?>
+                </label>
+            </div>
+
+        </div>
+    </div>
+        
+    
+    
+    
+    <div class="container">
+        <div class="jumbotron jumbo-rounded top-space">
+            <h2>Question</h2>
+
+            <p style="font-size:17px ">
+                <?php
+                    echo $question;
+                ?>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron jumbo-rounded">
+            <h2>Answers</h2>
+            
+            <div class="radio top-space">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                        <?php echo $option_1; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        <?php echo $option_2; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                        <?php echo $option_3; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                        <?php echo $option_4; ?>
+                </label>
+            </div>
+
+        </div>
+    </div>
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="container">
+        <div class="jumbotron jumbo-rounded top-space">
+            <h2>Question</h2>
+
+            <p style="font-size:17px ">
+                <?php
+                    echo $question;
+                ?>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron jumbo-rounded">
+            <h2>Answers</h2>
+            
+            <div class="radio top-space">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                        <?php echo $option_1; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        <?php echo $option_2; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                        <?php echo $option_3; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                        <?php echo $option_4; ?>
+                </label>
+            </div>
+
+        </div>
+    </div>
+        
+
+
+
+
+
 
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
@@ -153,11 +273,63 @@
         </div>
     </div>
         
-        <div class="row" style="position: absolute; bottom: 0px; width: 100% ">
-            <div class="col-sm-3 pagination col-xm-3" style="text-align: center" >
+
+
+
+
+
+
+    <div class="container">
+        <div class="jumbotron jumbo-rounded top-space">
+            <h2>Question</h2>
+
+            <p style="font-size:17px ">
+                <?php
+                    echo $question;
+                ?>
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="jumbotron jumbo-rounded">
+            <h2>Answers</h2>
+            
+            <div class="radio top-space">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                        <?php echo $option_1; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                        <?php echo $option_2; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                        <?php echo $option_3; ?>
+                </label>
+            </div>
+            <div class="radio">
+                <label>   
+                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                        <?php echo $option_4; ?>
+                </label>
+            </div>
+
+        </div>
+    </div>
+        
+    
+    
+    
+    <div class="row navbar-fixed-bottom" style="background-color: rgba(0,0,0,0.8)">
+            <div class="col-sm-3 pagination col-xs-3" style="text-align: center" >
                 <button type="button" class="btn btn-danger">Exit</button>
             </div>
-            <div style="text-align: center" class="col-sm-6  col-xm-6">
+            <div style="text-align: center" class="col-sm-6  col-xs-6">
                 <ul class="pagination">
                     
                     <li>
@@ -189,11 +361,10 @@
                 </ul>
                 
             </div>
-            <div class="col-sm-3 col-xm-3 pagination" style="text-align: center">
+            <div class="col-sm-3 col-xs-3 pagination" style="text-align: center">
                 <button type="button" class="btn btn-success">Success</button>
             </div>
         </div>
-        
     
     
     
