@@ -2,7 +2,8 @@
 
 <?php
 
-    $questionNumbers=array("1","2","3");
+ include_once('randomQueNum.php');
+    
     
     #Creating a database connection
     $con = mysqli_connect("localhost","root","root","mcq_quiz");
@@ -14,7 +15,7 @@
     mysqli_select_db($con , "questions_answers");
 
     
-    dbQuery("1");
+    dbQuery($questionNumbers[0]);
     
     $question;
     $option_1;
@@ -62,28 +63,33 @@
     if(isset($_GET['runFunction']) && function_exists($_GET['runFunction'])){
         call_user_func($_GET['runFunction']);
     }else{
-        echo "Function not found or wrong input";
+       # echo "Function not found or wrong input";
     }
     
     
     function randomMcq_1(){
-        dbQuery("1");   
+        global $questionNumbers;
+        dbQuery($questionNumbers[0]);   
     }
     
     function randomMcq_2(){
-        dbQuery("2");   
+        global $questionNumbers;
+        dbQuery($questionNumbers[1]);   
     }
 
     function randomMcq_3(){
-        dbQuery("3");   
+        global $questionNumbers;
+        dbQuery($questionNumbers[2]);   
     }
     
     function randomMcq_4(){
-        dbQuery("4");   
+        global $questionNumbers;
+        dbQuery($questionNumbers[3]);   
     }
     
     function randomMcq_5(){
-        dbQuery("5");   
+        global $questionNumbers;
+        dbQuery($questionNumbers[4]);   
     }
 
 
@@ -121,7 +127,7 @@
             
             <div class="radio top-space">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
                         <?php echo $option_1; ?>
                 </label>
             </div>
