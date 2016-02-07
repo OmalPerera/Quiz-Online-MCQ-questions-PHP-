@@ -1,7 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
-<?php   
+<?php
+    //session_start();
     include_once('randomQueNum.php');
+    $_SESSION['custom_Que_Ans'] = $array_Que_Ans;
+    //print_r($_SESSION);
+    
+    
 ?>
 
 
@@ -23,15 +28,41 @@
             }
           }
           
-          
+        
           
         function submit_answers() {
-            var Que_1_ans = get_radio_btn_value("que_1ans");
-            var Que_2_ans = get_radio_btn_value("que_2ans");
-            var Que_3_ans = get_radio_btn_value("que_3ans");
-            var Que_4_ans = get_radio_btn_value("que_4ans");
-            var Que_5_ans = get_radio_btn_value("que_5ans");
-            alert("selected input is: " + Que_1_ans + Que_2_ans + Que_3_ans + Que_4_ans + Que_5_ans);
+            ans = new Array();
+            ans[0] = get_radio_btn_value("que_1ans");
+            ans[1] = get_radio_btn_value("que_2ans");
+            ans[2] = get_radio_btn_value("que_3ans");
+            ans[3] = get_radio_btn_value("que_4ans");
+            ans[4] = get_radio_btn_value("que_5ans");
+            
+            //alert("dcd" + ans[0]);
+            
+            var count = 0;
+            for (var i=0; i<5; i++) {
+                if (typeof(ans[i]) === 'undefined') {
+                    alert("You hava a question that has been not answered");
+                    break;
+                }else{
+                    count++;
+                    if (count == 5 ) {
+                        window.location.href = "score.php?ans=" + ans;
+                    }
+                   
+                }
+            }
+            
+            
+              
+                 
+            
+            
+            
+            
+            
+            
         }
           
 
@@ -325,9 +356,9 @@
                 
             </div>
             <div class="col-sm-3 col-xs-3 pagination" style="text-align: center">
-                <a href="score.php">
+                
                 <button type="button" class="btn btn-success" onclick='submit_answers()'>Submit</button>
-                </a>
+                
             </div>
         </div>
     

@@ -53,7 +53,7 @@
     #Performing Database Querry
     function dbQuery($questionNumber,$arr_index){
        
-        $query_statement = "SELECT question, ans_1, ans_2, ans_3, ans_4
+        $query_statement = "SELECT question, ans_1, ans_2, ans_3, ans_4,correct_ans
                         FROM questions_answers
                         WHERE que_no=". $questionNumber ." ";
         #echo $questionNumber;              
@@ -75,6 +75,7 @@
             $array_Que_Ans[$arr_index][2] = $row[2];
             $array_Que_Ans[$arr_index][3] = $row[3];
             $array_Que_Ans[$arr_index][4] = $row[4];
+            $array_Que_Ans[$arr_index][5] = $row[5];
             
         }    
     }

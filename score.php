@@ -1,7 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
-<?php   
-    include_once('randomQueNum.php');
+<?php
+    session_start();
+    $custom_Que_Ans = $_SESSION['custom_Que_Ans'];
+    print_r($custom_Que_Ans);
+    
+    $userAnswers = $_GET['ans'];
+    //echo $aaaa;
+    
+    $myArray = explode(',', $userAnswers);
+    print_r($myArray);
+    
+    
 ?>
 
 
@@ -33,11 +42,11 @@
     <div class="container">
         <div class="jumbotron jumbo-rounded" style="background-color: #f5f5f5">
             <h2 style="color: #666666">Review</h2>
-            <div class="alert alert-success" role="alert">...</div>
-            <div class="alert alert-success" role="alert">...</div>
-            <div class="alert alert-success" role="alert">...</div>
-            <div class="alert alert-danger" role="alert">...</div>
-            <div class="alert alert-success" role="alert">...</div>
+            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[0][0]; echo "\t"; echo "Answer";?></div>
+            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[1][0]; ?></div>
+            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[2][0]; ?></div>
+            <div class="alert alert-danger" role="alert"><?php echo $custom_Que_Ans[3][0]; ?></div>
+            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[4][0]; ?></div>
             
         </div>
     </div>
