@@ -1,70 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 
-<?php
-    #session_start();
-   
+<?php   
     include_once('randomQueNum.php');
-     
-     
-    #Creating a database connection
-    $con = mysqli_connect("localhost","root","root","mcq_quiz");
-    if(!$con){
-        echo "Database connection failed :" . mysqli_connect_error();
-    }
-    
-    #Selecting the database to use
-    mysqli_select_db($con , "questions_answers");
-
-    
-    
-    
-    $array_Que_Ans = array();
-    /*
-    echo $questionNumbers[0]. "<br>";
-    echo $questionNumbers[1]. "<br>";
-    echo $questionNumbers[2]. "<br>";
-    echo $questionNumbers[3]. "<br>";
-    */
-    for($i=0; $i<5; $i++){
-            global $questionNumbers;
-            #echo $questionNumbers[$i];
-            dbQuery($questionNumbers[$i],$i);   
-        
-    }
-    
-    
-    
-    #Performing Database Querry
-    function dbQuery($questionNumber,$arr_index){
-       
-        $query_statement = "SELECT question, ans_1, ans_2, ans_3, ans_4
-                        FROM questions_answers
-                        WHERE que_no=". $questionNumber ." ";
-        echo $questionNumber;              
-        global $con;
-        $result = mysqli_query($con, $query_statement);
-    
-        if(!$result){
-            die("Databse querry failed : " . mysqli_error());
-        }
-        
-        
-        
-        #Showing result in html
-        while ($row = mysqli_fetch_array($result)){
-            #echo $questionNumber;
-            global $array_Que_Ans;
-            $array_Que_Ans[$arr_index][0] = $row[0];
-            $array_Que_Ans[$arr_index][1] = $row[1];
-            $array_Que_Ans[$arr_index][2] = $row[2];
-            $array_Que_Ans[$arr_index][3] = $row[3];
-            $array_Que_Ans[$arr_index][4] = $row[4];
-            
-        }    
-    }
-    
-
-
 ?>
 
 
@@ -130,11 +67,11 @@
     
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
-            <h2>Question</h2>
+            <h2>Question 2</h2>
 
             <p style="font-size:17px ">
                 <?php
-                    echo $question;
+                    echo $array_Que_Ans[1][0];;
                 ?>
             </p>
         </div>
@@ -146,25 +83,25 @@
             <div class="radio top-space">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                        <?php echo $option_1; ?>
+                        <?php echo $array_Que_Ans[1][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        <?php echo $option_2; ?>
+                        <?php echo $array_Que_Ans[1][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                        <?php echo $option_3; ?>
+                        <?php echo $array_Que_Ans[1][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                        <?php echo $option_4; ?>
+                        <?php echo $array_Que_Ans[1][4]; ?>
                 </label>
             </div>
 
@@ -183,11 +120,11 @@
     
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
-            <h2>Question</h2>
+            <h2>Question 3</h2>
 
             <p style="font-size:17px ">
                 <?php
-                    echo $question;
+                    echo $array_Que_Ans[2][0];
                 ?>
             </p>
         </div>
@@ -199,25 +136,25 @@
             <div class="radio top-space">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                        <?php echo $option_1; ?>
+                        <?php echo $array_Que_Ans[2][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        <?php echo $option_2; ?>
+                        <?php echo $array_Que_Ans[2][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                        <?php echo $option_3; ?>
+                        <?php echo $array_Que_Ans[2][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                        <?php echo $option_4; ?>
+                        <?php echo $array_Que_Ans[2][4]; ?>
                 </label>
             </div>
 
@@ -232,11 +169,11 @@
 
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
-            <h2>Question</h2>
+            <h2>Question 4</h2>
 
             <p style="font-size:17px ">
                 <?php
-                    echo $question;
+                    echo $array_Que_Ans[3][0];
                 ?>
             </p>
         </div>
@@ -248,25 +185,25 @@
             <div class="radio top-space">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                        <?php echo $option_1; ?>
+                        <?php echo $array_Que_Ans[3][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        <?php echo $option_2; ?>
+                        <?php echo $array_Que_Ans[3][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                        <?php echo $option_3; ?>
+                        <?php echo $array_Que_Ans[3][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                        <?php echo $option_4; ?>
+                        <?php echo $array_Que_Ans[3][4]; ?>
                 </label>
             </div>
 
@@ -281,11 +218,11 @@
 
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
-            <h2>Question</h2>
+            <h2>Question 5</h2>
 
             <p style="font-size:17px ">
                 <?php
-                    echo $question;
+                    echo $array_Que_Ans[4][0];
                 ?>
             </p>
         </div>
@@ -297,25 +234,25 @@
             <div class="radio top-space">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                        <?php echo $option_1; ?>
+                        <?php echo $array_Que_Ans[4][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        <?php echo $option_2; ?>
+                        <?php echo $array_Que_Ans[4][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                        <?php echo $option_3; ?>
+                        <?php echo $array_Que_Ans[4][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
                     <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                        <?php echo $option_4; ?>
+                        <?php echo $array_Que_Ans[4][4]; ?>
                 </label>
             </div>
 
