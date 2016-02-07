@@ -12,16 +12,16 @@
 
 
 
-		for($j=0; $j<sizeof($questionNumbers); $j++){
+		for($j=0; $j<5; $j++){
 
     		if(random_Number==$questionNumbers[$j]){
     		}else{
-        		$questionNumbers[] = $random_Number;
+        		$questionNumbers[$j] = $random_Number;
     		}
     	}
     }
-
- */
+*/
+ 
     
     #Creating a database connection
     $con = mysqli_connect("localhost","root","root","mcq_quiz");
@@ -49,7 +49,7 @@
         
     }
     
-    
+
     #Performing Database Querry
     function dbQuery($questionNumber,$arr_index){
        

@@ -10,6 +10,32 @@
 <head>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript">
+        
+          function get_radio_btn_value($qNum) {
+            var Que_1_ans = document.getElementsByName($qNum);
+            
+            for (var i = 0; i < Que_1_ans.length; i++) {
+              if (Que_1_ans[i].checked) {
+                return Que_1_ans[i].value;
+              }
+            }
+          }
+          
+          
+          
+        function submit_answers() {
+            var Que_1_ans = get_radio_btn_value("que_1ans");
+            var Que_2_ans = get_radio_btn_value("que_2ans");
+            var Que_3_ans = get_radio_btn_value("que_3ans");
+            var Que_4_ans = get_radio_btn_value("que_4ans");
+            var Que_5_ans = get_radio_btn_value("que_5ans");
+            alert("selected input is: " + Que_1_ans + Que_2_ans + Que_3_ans + Que_4_ans + Que_5_ans);
+        }
+          
+
+        </script>
 
     <title></title>
 </head>
@@ -36,25 +62,25 @@
             
             <div class="radio top-space">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    <input type="radio" name="que_1ans" id="optionsRadios1" value="ans_1">
                         <?php echo $array_Que_Ans[0][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" name="que_1ans" id="optionsRadios2" value="ans_2">
                         <?php echo $array_Que_Ans[0][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" name="que_1ans" id="optionsRadios3" value="ans_3">
                         <?php echo $array_Que_Ans[0][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    <input type="radio" name="que_1ans" id="optionsRadios4" value="ans_4">
                         <?php echo $array_Que_Ans[0][4]; ?>
                 </label>
             </div>
@@ -82,25 +108,25 @@
             
             <div class="radio top-space">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    <input type="radio" name="que_2ans" id="optionsRadios1" value="ans_1">
                         <?php echo $array_Que_Ans[1][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" name="que_2ans" id="optionsRadios2" value="ans_2">
                         <?php echo $array_Que_Ans[1][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" name="que_2ans" id="optionsRadios3" value="ans_3">
                         <?php echo $array_Que_Ans[1][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    <input type="radio" name="que_2ans" id="optionsRadios4" value="ans_4">
                         <?php echo $array_Que_Ans[1][4]; ?>
                 </label>
             </div>
@@ -135,25 +161,25 @@
             
             <div class="radio top-space">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    <input type="radio" name="que_3ans" id="optionsRadios1" value="ans_1">
                         <?php echo $array_Que_Ans[2][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" name="que_3ans" id="optionsRadios2" value="ans_2">
                         <?php echo $array_Que_Ans[2][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" name="que_3ans" id="optionsRadios3" value="ans_3">
                         <?php echo $array_Que_Ans[2][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    <input type="radio" name="que_3ans" id="optionsRadios4" value="ans_4">
                         <?php echo $array_Que_Ans[2][4]; ?>
                 </label>
             </div>
@@ -184,25 +210,25 @@
             
             <div class="radio top-space">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    <input type="radio" name="que_4ans" id="optionsRadios1" value="ans_1">
                         <?php echo $array_Que_Ans[3][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" name="que_4ans" id="optionsRadios2" value="ans_2">
                         <?php echo $array_Que_Ans[3][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" name="que_4ans" id="optionsRadios3" value="ans_3">
                         <?php echo $array_Que_Ans[3][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    <input type="radio" name="que_4ans" id="optionsRadios4" value="ans_4">
                         <?php echo $array_Que_Ans[3][4]; ?>
                 </label>
             </div>
@@ -233,25 +259,25 @@
             
             <div class="radio top-space">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                    <input type="radio" name="que_5ans" id="optionsRadios1" value="ans_1">
                         <?php echo $array_Que_Ans[4][1]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <input type="radio" name="que_5ans" id="optionsRadios2" value="ans_2">
                         <?php echo $array_Que_Ans[4][2]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    <input type="radio" name="que_5ans" id="optionsRadios3" value="ans_3">
                         <?php echo $array_Que_Ans[4][3]; ?>
                 </label>
             </div>
             <div class="radio">
                 <label>   
-                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                    <input type="radio" name="que_5ans" id="optionsRadios4" value="ans_4">
                         <?php echo $array_Que_Ans[4][4]; ?>
                 </label>
             </div>
@@ -299,7 +325,7 @@
                 
             </div>
             <div class="col-sm-3 col-xs-3 pagination" style="text-align: center">
-                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-success" onclick='submit_answers()'>Submit</button>
             </div>
         </div>
     
