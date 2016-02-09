@@ -10,7 +10,9 @@
     //echo $aaaa;
     
     $user_ans = explode(',', $userAnswers);
+    //print_r($user_ans[1]);
     //print_r($user_ans);
+    //echo "<br><br>";
     
     $number_of_correct_ans = 0;
     $percentage_marks = 0;
@@ -36,7 +38,7 @@
         $percentage_marks = ($number_of_correct_ans * 20);
     }
     
-    
+    //echo $custom_Que_Ans[1][1];
     
     
     $array_Correct_Ans = array();
@@ -48,23 +50,28 @@
         for($i=0; $i<5; $i++){
             
             if($custom_Que_Ans[$i][5] == 'ans_1'){
-                //echo "cccc";
+                echo "cccc";
+                //print_r($);
+                //print_r($custom_Que_Ans);
+                //echo "<br><br>";
                 $array_Correct_Ans[$i] = $custom_Que_Ans[$i][1];
+                //echo $custom_Que_Ans[0][0];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_2'){
-                //echo "vvvv";
+                echo "vvvv";
                 $array_Correct_Ans[$i] =  $custom_Que_Ans[$i][2];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_3'){
-                //echo "bbbb";
+                echo "bbbb";
                 $array_Correct_Ans[$i] = $custom_Que_Ans[$i][3];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_4'){
-                //echo "mmmm";
+                echo "mmmm";
                 $array_Correct_Ans[$i] = $custom_Que_Ans[$i][4];
                 
             }else{
             }
+            
         }
     }
     
@@ -73,7 +80,7 @@
     
     calculate_Score();
     list_correct_ans();
-    print_r($array_Correct_Ans[2]);
+    var_dump($array_Correct_Ans);
     
 ?>
 
