@@ -48,19 +48,22 @@
         for($i=0; $i<5; $i++){
             
             if($custom_Que_Ans[$i][5] == 'ans_1'){
-                $array_Correct_Ans[$i] ==  $custom_Que_Ans[$i][1];
+                //echo "cccc";
+                $array_Correct_Ans[$i] = $custom_Que_Ans[$i][1];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_2'){
-                $array_Correct_Ans[$i] ==  $custom_Que_Ans[$i][2];
+                //echo "vvvv";
+                $array_Correct_Ans[$i] =  $custom_Que_Ans[$i][2];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_3'){
-                $array_Correct_Ans[$i] ==  $custom_Que_Ans[$i][3];
+                //echo "bbbb";
+                $array_Correct_Ans[$i] = $custom_Que_Ans[$i][3];
                 
-            //}elseif($custom_Que_Ans[$i][5] == 'ans_4'){
-              //  $array_Correct_Ans[$i] ==  $custom_Que_Ans[$i][4];
+            }elseif($custom_Que_Ans[$i][5] == 'ans_4'){
+                //echo "mmmm";
+                $array_Correct_Ans[$i] = $custom_Que_Ans[$i][4];
                 
             }else{
-                
             }
         }
     }
@@ -69,7 +72,8 @@
     
     
     calculate_Score();
-    //list_correct_ans();
+    list_correct_ans();
+    print_r($array_Correct_Ans[2]);
     
 ?>
 

@@ -2,8 +2,19 @@
 	
 
     $questionNumbers=array(5,2,4,9,1);
+    $queNumInOrder = array(1,2,3,4,5,6,7,8,9,10,11);
     
-    
+    shuffle($queNumInOrder);
+    #foreach ($queNumInOrder as $displayAtRandomOrder) {
+	#	print_r($displayAtRandomOrder);
+	#	}
+
+    for($j=0; $j<5; $j++){
+    		global $queNumInOrder;
+    		global $questionNumbers;
+    		$questionNumbers[$j] = $queNumInOrder[$j];
+    	}
+
   /*  
     while(sizeof($questionNumbers)<6){
 

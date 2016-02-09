@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-
 <?php
-    //session_start();
+    session_start();
+?>
+<?php
+    
     include_once('randomQueNum.php');
     $_SESSION['custom_Que_Ans'] = $array_Que_Ans;
     //print_r($_SESSION);
