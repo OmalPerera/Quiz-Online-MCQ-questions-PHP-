@@ -16,7 +16,7 @@
     
     $number_of_correct_ans = 0;
     $percentage_marks = 0;
-    $tab_space = "&emsp;&emsp;&emsp;";
+    $tab_space = "&emsp;&emsp;&emsp;&emsp;&emsp;";
     
     
     
@@ -38,7 +38,7 @@
         $percentage_marks = ($number_of_correct_ans * 20);
     }
     
-    //echo $custom_Que_Ans[1][1];
+    
     
     
     $array_Correct_Ans = array();
@@ -50,23 +50,15 @@
         for($i=0; $i<5; $i++){
             
             if($custom_Que_Ans[$i][5] == 'ans_1'){
-                echo "cccc";
-                //print_r($);
-                //print_r($custom_Que_Ans);
-                //echo "<br><br>";
                 $array_Correct_Ans[$i] = $custom_Que_Ans[$i][1];
-                //echo $custom_Que_Ans[0][0];
-                
+
             }elseif($custom_Que_Ans[$i][5] == 'ans_2'){
-                echo "vvvv";
                 $array_Correct_Ans[$i] =  $custom_Que_Ans[$i][2];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_3'){
-                echo "bbbb";
                 $array_Correct_Ans[$i] = $custom_Que_Ans[$i][3];
                 
             }elseif($custom_Que_Ans[$i][5] == 'ans_4'){
-                echo "mmmm";
                 $array_Correct_Ans[$i] = $custom_Que_Ans[$i][4];
                 
             }else{
@@ -77,11 +69,28 @@
     
     
     
+    $stripColor = array();
+    
+    function reviewStripColor(){
+        global $custom_Que_Ans;
+        global $user_ans;
+        global $stripColor;
+        
+        for($i=0; $i<5; $i++){
+            if($custom_Que_Ans[$i][5] == $user_ans[$i]){
+                $stripColor[$i] = 'alert-success';
+            }else{
+                $stripColor[$i] = 'alert-danger';
+            }
+        }
+    }
+    
+    
+    
     
     calculate_Score();
     list_correct_ans();
-    var_dump($array_Correct_Ans);
-    
+    reviewStripColor();
 ?>
 
 
@@ -113,11 +122,11 @@
     <div class="container">
         <div class="jumbotron jumbo-rounded" style="background-color: #f5f5f5">
             <h2 style="color: #666666">Review</h2>
-            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[0][0]; echo $tab_space; echo "Answer : ";?></div>
-            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[1][0]; ?></div>
-            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[2][0]; ?></div>
-            <div class="alert alert-danger" role="alert"><?php echo $custom_Que_Ans[3][0]; ?></div>
-            <div class="alert alert-success" role="alert"><?php echo $custom_Que_Ans[4][0]; ?></div>
+            <div class="alert <?php echo $stripColor[0]; ?>" role="alert"><?php echo $custom_Que_Ans[0][0]; echo $tab_space; echo "Answer : ".$array_Correct_Ans[0];?></div>
+            <div class="alert <?php echo $stripColor[1]; ?>" role="alert"><?php echo $custom_Que_Ans[1][0]; echo $tab_space; echo "Answer : ".$array_Correct_Ans[1];?></div>
+            <div class="alert <?php echo $stripColor[2]; ?>" role="alert"><?php echo $custom_Que_Ans[2][0]; echo $tab_space; echo "Answer : ".$array_Correct_Ans[2];?></div>
+            <div class="alert <?php echo $stripColor[3]; ?>" role="alert"><?php echo $custom_Que_Ans[3][0]; echo $tab_space; echo "Answer : ".$array_Correct_Ans[3];?></div>
+            <div class="alert <?php echo $stripColor[4]; ?>" role="alert"><?php echo $custom_Que_Ans[4][0]; echo $tab_space; echo "Answer : ".$array_Correct_Ans[4];?></div>
             
         </div>
     </div>
