@@ -56,28 +56,29 @@
             }
             
             
-              
-                 
-            
-            
-            
-            
-            
-            
         }
           
 
         </script>
 
-    <title></title>
+    <title>Quiz +</title>
 </head>
 
 <body>
-    <div id="navbar" class="navbar-collapse collapes" style="background-color: #000; height: 75px">
-        hello
+    <div id="navbar" class="navbar-collapse collapes container" style="background-color: rgba(0,0,0,0.95); height: 75px">
+        <div class="row">
+            <div class="col-md-3 col-xs-3" style="text-align: center; padding: 5px"><h1 style="color: #eaeaea;">Quiz +</h1></div>
+            <div class="col-md-6 col-xs-6"></div>
+            <div class="col-md-3 col-xs-3" style="text-align: center; padding: 20px">
+                <a href="logout.php">
+                    <button type="button" class="btn btn-default">Log out</button>
+                </a>
+            </div>
     </div>
 
-    <div class="container">
+    
+    <a name="q1"></a>
+    <div class="container" style="margin-top: 30px">
         <div class="jumbotron jumbo-rounded top-space">
             <h2>Question 1</h2>
 
@@ -122,7 +123,7 @@
         
     
     
-    
+    <a name="q2"></a>
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
             <h2>Question 2</h2>
@@ -175,7 +176,7 @@
     
     
     
-    
+    <a name="q3"></a>
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
             <h2>Question 3</h2>
@@ -224,7 +225,7 @@
 
 
 
-
+    <a name="q4"></a>
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
             <h2>Question 4</h2>
@@ -273,7 +274,7 @@
 
 
 
-
+    <a name="q5"></a>
     <div class="container">
         <div class="jumbotron jumbo-rounded top-space">
             <h2>Question 5</h2>
@@ -285,7 +286,7 @@
             </p>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="margin-bottom: 120px">
         <div class="jumbotron jumbo-rounded">
             <h2>Answers</h2>
             
@@ -322,7 +323,9 @@
     
     <div class="row navbar-fixed-bottom" style="background-color: rgba(0,0,0,0.8)">
             <div class="col-sm-3 pagination col-xs-3" style="text-align: center" >
+                <a href="exit.php">
                 <button type="button" class="btn btn-danger">Exit</button>
+                </a>
             </div>
             <div style="text-align: center" class="col-sm-6  col-xs-6">
                 <ul class="pagination">
@@ -332,20 +335,20 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="page_mcq.php?runFunction=randomMcq_1">1<span class="sr-only">(current)</span></a>
+                    <li>
+                        <a href="#q1">1<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="page_mcq.php?runFunction=randomMcq_2">2<span class="sr-only">(current)</span></a>
+                        <a href="#q2">2<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="page_mcq.php?runFunction=randomMcq_3">3<span class="sr-only">(current)</span></a>
+                        <a href="#q3">3<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="page_mcq.php?runFunction=randomMcq_4">4<span class="sr-only">(current)</span></a>
+                        <a href="#q4">4<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <a href="page_mcq.php?runFunction=randomMcq_5">5<span class="sr-only">(current)</span></a>
+                        <a href="#q5">5<span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <a href="#" aria-label="Next">

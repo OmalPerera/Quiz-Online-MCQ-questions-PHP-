@@ -16,7 +16,7 @@
     
     $number_of_correct_ans = 0;
     $percentage_marks = 0;
-    $tab_space = "&emsp;&emsp;&emsp;&emsp;&emsp;";
+    $tab_space = "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;";
     
     
     
@@ -103,8 +103,15 @@
 </head>
 
 <body>
-    <div id="navbar" class="navbar-collapse collapes" style="background-color: #000; height: 75px">
-        hello
+    <div id="navbar" class="navbar-collapse collapes container" style="background-color: rgba(0,0,0,0.95); height: 75px">
+        <div class="row">
+            <div class="col-md-3 col-xs-3" style="text-align: center; padding: 5px"><h1 style="color: #eaeaea;">Quiz +</h1></div>
+            <div class="col-md-6 col-xs-6"></div>
+            <div class="col-md-3 col-xs-3" style="text-align: center; padding: 20px">
+                <a href="logout.php">
+                    <button type="button" class="btn btn-default">Log out</button>
+                </a>
+            </div>
     </div>
 
     <div class="container">

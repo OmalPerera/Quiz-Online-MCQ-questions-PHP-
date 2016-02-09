@@ -5,6 +5,10 @@
 
 <html>
 <head>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
+    
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"><!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"><!--Let browser know website is optimized for mobile-->
@@ -14,13 +18,23 @@
     <title></title>
 </head>
 
-<body style=" font-family: 'Lucida Grande',Helvetica,Arial,Verdana,sans-serif; margin: 0; padding: 0; width: 100%; height: 100%">
+<body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     
     
-    <div style="background: #000; height: 100px "></div>
-    <div style="background-image: url('images/background.jpg'); width: 100%; height: 85%; background-position: center; background-repeat: no-repeat; padding-top: 100px; padding-bottom: 100px">
+    <div style="background: #000;">
+    <div id="navbar" class="navbar-collapse collapes container" style="background-color: rgba(0,0,0,0.95); height: 75px">
+        <div class="row">
+            <div class="col-md-3 col-xs-3" style="text-align: center; padding: 5px">
+                <h3 style="color: #eaeaea; margin-left: -10px">Quiz +</h3>
+            </div>
+            <div class="col-md-6 col-xs-6"></div>
+            <div class="col-md-3 col-xs-3"></div>
+        </div>
+    </div>
+    </div>
+    <div style="background-image: url('images/background.jpg'); width: 100%; height: 600px; background-repeat: no-repeat; padding-top: 100px; padding-bottom: 100px">
 
     <div style="width:450px; height:400px; background-color: transparent ; margin: auto; vertical-align: middle;">
         <div style="width: 100%; height: 27%; background-color: #3c9cc6;"></div>
