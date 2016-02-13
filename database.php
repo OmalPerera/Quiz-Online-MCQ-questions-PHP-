@@ -1,7 +1,7 @@
 <?php
     define('HOST_NAME', 'localhost');
     define('DB_USER','root');
-    define('DB_PASSWORD','root');
+    define('DB_PASSWORD','');
     define('DB_NAME', 'mcq_quiz');
     
     global $con;
