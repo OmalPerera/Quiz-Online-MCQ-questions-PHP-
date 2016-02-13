@@ -25,23 +25,23 @@
     function SignIn() {
         session_start(); //starting the session for user profile page
         
-        if((!empty($_POST['username'])) || (!empty($_POST['password']))){
+        if((empty($_POST['username'])) && (!empty($_POST['password']))){
             
             $query_statement = "SELECT name, password
                                 FROM user
-                                where name = '$_POST[username]' AND password = '$_POST[password]'";
+                                where name = '$_POST[username]' OR password != '$_POST[password]'";
             
             $query = mysqli_query($con, $query_statement);
                 
             $row = mysqli_fetch_array($query)
                 or die(mysql_error());
                 
-            if(!empty($row['username']) AND !empty($row['password'])) {
+            if(!empty($row['username']) OR !empty($row['password'])) {
                 #$_SESSION['username'] = $row['password'];
                 header("Location:page_mcq.php");
                 exit();
             }else {
-                echo "SORRY... YOU ENTERD WRONG ID AND PASSWORD... PLEASE RETRY...";
+                echo "OR..UETR RN DADPSWR..PES ER..";
                 #header("Location:page_mcq.php");
                 exit();
                 }
